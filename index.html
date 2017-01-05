@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Guessing Game</title>
+
+    <!-- Bootstrap and CSS here-->
+    <link rel='stylesheet' type='text/css' href='style.css'/>
+    <link rel='stylesheet' type='text/css' href='bootstrap.css'/>
+
+  </head>
+  <body>
+
+      <div id='app' class='center container'>
+
+        <div id='headers'>
+          <!-- Title and subtitles! -->
+          <h1 id='title'>Guessing Game!</h1>
+          <h3 id='subtitle'>Guess a Number Between 1 and 100</h3>
+        </div>
+
+        <div id='main'>
+          <div id='input-parent'>
+            <!-- Player's guess input, and submit button -->
+            <form>
+              <input id='player-input' type='text' maxlength='3' placeholder = '#'>
+              <input id='submit' enabled = 'disabled' class='btn btn-warning' type='submit' value='Submit'/>
+            </form>
+          </div>
+
+          <div id='guesses'>
+            <!-- unordered list of guesses -->
+            <ul id='guess-list' class='guess'>
+              <li>-</li>
+              <li>-</li>
+              <li>-</li>
+              <li>-</li>
+              <li>-</li>
+            </ul>
+          </div>
+
+          <div id='menu-btns'>
+            <!-- reset and hint buttons -->
+            <button id='reset' class='btn btn-primary'>Reset</button>
+            <button id='hint' enabled = 'disabled' class='btn btn-primary'>Hint</button>
+          </div>
+        </div>
+      </div>
+
+
+
+    <div id='footer' class='center'>
+        <div class='row'>
+          <div class='col-sm-4'>
+            <img class='img-responsive' src='fa-logo@2x.png'></img>
+          </div>
+
+          <div class='col-sm-4'>
+            <h4>Project by Raina Jacobskind</h4>
+          </div>
+
+          <div class='col-sm-4'>
+            <img class='img-responsive' src='grace_hopper_academy.png'></img>
+          </div>
+
+
+        </div>
+    </div>
+    <script src = "jquery.js"></script>
+    <script src = "./GuessingGame-Part2/GuessingGame.js"></script>
+  </body>
+</html>
