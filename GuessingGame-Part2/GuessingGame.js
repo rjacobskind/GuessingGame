@@ -75,7 +75,7 @@ Game.prototype.checkGuess = function(){
         $('#subtitle').text(" Guess lower!");
       }
 
-      else if(difference < 10){
+      if(difference < 10){
         return "You're burning up!";
       }
 
@@ -102,6 +102,7 @@ Game.prototype.provideHint = function(){
   return shuffle([generateWinningNumber(), generateWinningNumber(), this.winningNumber]);
 }
 
+
 function logGuess(x){
   var guess = +$('#player-input').val();
   $('#player-input').val("");
@@ -116,11 +117,13 @@ var game = new Game();
 
 $('#submit').on('click', function(){
   logGuess(game);
+  return false;
 });
 
 $('#player-input').on('keypress', function(){
   if(event.which === 13){
     logGuess(game);
+    return false;
   }
 });
 
@@ -128,12 +131,12 @@ $('#reset').on('click', function(){
   game = newGame();
   $('#title').text("Guessing Game!");
   $('#subtitle').text("Guess a number between 1 and 100");
-  $('.guess').find('li').text("-");
+  $('.guess').text("-");
   $('#submit, #hint').prop("disabled", false);
 });
 
 $('#hint').on('click', function(){
   var hints = game.provideHint();
-  $('#title').text("The winning number is one of the following: " + hints[0] + ", " + hints[1] + ", or " + hints[2]);
+  $('#title').text("The winning number is:\n" + hints[0] + ", " + hints[1] + ", or " + hints[2]);
 });
 });
