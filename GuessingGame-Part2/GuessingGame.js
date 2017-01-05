@@ -64,6 +64,7 @@ Game.prototype.checkGuess = function(){
       if(this.pastGuesses.length === 5){
         $('#submit, #hint').prop("disabled", true);
         $('#subtitle').text("Click Reset to Play Again");
+        $('#win').text("The correct number was: " + this.winningNumber);
         return "You Lose.";
       }
 
@@ -121,7 +122,7 @@ $('#submit').on('click', function(){
 });
 
 $('#player-input').on('keypress', function(){
-  if(event.which === 13){
+  if(event.which === 13 && $('#title').text() !== "You Win!" && $('#title').text() !== "You Lose."){
     logGuess(game);
     return false;
   }
@@ -130,6 +131,7 @@ $('#player-input').on('keypress', function(){
 $('#reset').on('click', function(){
   game = newGame();
   $('#title').text("Guessing Game!");
+  $('#win').text("");
   $('#subtitle').text("Guess a number between 1 and 100");
   $('.guess').text("-");
   $('#submit, #hint').prop("disabled", false);
